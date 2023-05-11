@@ -90,7 +90,7 @@ while(true){
 }
 
 
-
+//
 // $stos = new Stos(4);
 // echo "Stos po inicjalizacji: ", $stos->printStack(), " \n";
 // $stos->pop();
