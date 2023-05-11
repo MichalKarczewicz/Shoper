@@ -7,7 +7,7 @@ class Stos{
     private $capacity = 0;
     public function __construct($_size){
        $this->capacity = $_size;
-       $this->tab = array();
+       $this->tab = [];
     }
 
     public function push(int $value){
@@ -60,6 +60,36 @@ class Stos{
 
 }
 
+$stos = new Stos(10);
+while(true){
+    
+    echo "Select push/pop/print \n";
+    $handle = fopen("php://stdin", "r");
+    $option = trim(fgets($handle));
+    fclose($handle);
+    
+    switch ($option) {
+        case 'push':
+            echo "Select a value: \n";
+            $handle = fopen("php://stdin", "r");
+            $value = trim(fgets($handle));
+            fclose($handle);
+            $stos->push($value);
+            break;
+        case 'pop': 
+            $stos->pop();
+            break;
+        case 'print':
+            $stos->printStack();
+            break;
+        default:
+            
+            break;
+    }
+    echo "\n";
+}
+
+
 
 // $stos = new Stos(4);
 // echo "Stos po inicjalizacji: ", $stos->printStack(), " \n";
@@ -68,6 +98,7 @@ class Stos{
 // $stos->push(19);
 // $stos->push(26);
 // $stos->push(40);
+// echo "Rozmiar count: ", $stos->getSize(), " \n";
 // echo "Stos po dodaniu: ", $stos->printStack(), " \n";
 // echo "Usuwany element: ",$stos->pop(), " \n";
 // echo "Stos po pop: ", $stos->printStack(), " \n";
